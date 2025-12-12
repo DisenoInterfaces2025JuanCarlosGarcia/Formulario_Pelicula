@@ -23,24 +23,24 @@ function Formulario() {
 
 
         if (formData.nombre.length < 5) {
-            setError("Debe tener al menos 5 caracteres")
+            setError("Nombre Debe tener al menos 5 caracteres")
             return;
         }
         if (formData.grupo.length < 5) {
-            setError("Debe tener al menos 5 caracteres")
+            setError("Grupo Debe tener al menos 5 caracteres")
             return;
         }
 
         if (formData.año.length !== 4) {
-            setError("Debe tener al menos 4 caracteres")
+            setError("Año Debe tener al menos 4 caracteres")
             return;
         }
         if (!formData.tipo) {
-            setError("Debes seleccionar almenos un tipo.")
+            setError("Tipo Debes seleccionar almenos un tipo.")
             return;
         }
         if (!formData.localizacion.match(/^ES-\d{3}[A-Z]{2}$/)) {
-            setError("No has introducido el formato correcto (ES-000AA)")
+            setError("En localización No has introducido el formato correcto (ES-000AA)")
             return;
         }
         setError("")
