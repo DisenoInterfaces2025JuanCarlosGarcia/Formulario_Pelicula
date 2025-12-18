@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import peliculas from "../data/peliculas"
 
 function Formulario() {
     const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ function Formulario() {
 
     };
     const [error, setError] = useState("");
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -115,10 +117,9 @@ function Formulario() {
 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
                 >
-                    <option value="">-- Selecciona un tipo --</option>
-                    <option value="rock">Rock</option>
-                    <option value="punk">Punk</option>
-                    <option value="trash">Trash</option>
+                    {peliculas.map((pelicula)=>
+                    <option value={pelicula.nombre}>{pelicula.nombre}</option>
+                    )}
                 </select>
 
                 <label htmlFor="localizacion"

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import peliculas from "../data/peliculas";
 import List from "../components/List";
-import {useState} from "react";
+import { useState } from "react";
 import { useMemo } from "react";
 import SearchBar from "../components/SearchBar";
 
@@ -35,53 +35,49 @@ import SearchBar from "../components/SearchBar";
 function Interpretes() {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredInterpretes = useMemo(()=>{
+    const filteredInterpretes = useMemo(() => {
+        const allInterpretes = peliculas.flatMap((pelicula) =>
+            pelicula.actores.map((actor, idInterprete) => ({
+                idPelicula: pelicula.id,
+                idInterprete,
+                nombre: actor.nombre,
+                imagen: actor.imagen,
+                biografia: actor.biografia,
+            }))
+        );
 
-    const allInterpretes = peliculas.flatMap((pelicula)=>
-
-        pelicula.actores.map((actor,idInterprete)=>({
-            idPelicula: pelicula.id,
-            idInterprete: idInterprete,
-            esNota10: pelicula.nota==10,
-        }))
-
-    );
-    return allInterpretes.filter((int) =>
+        return allInterpretes.filter((int) =>
             int.nombre.toLowerCase().includes(searchTerm.toLowerCase())
         );
-},[searchTerm]);
+    }, [searchTerm]);
 
-  return (
-    <>
-        <h2 className="text-xl font-semibold mb-4">Listado de intérpretes</h2>
-        <p className="text-gray-700 mb-6">
-            Estos son los intérpretes disponibles de nuestras películas:
-        </p>
-         <SearchBar
+    return (
+        <>
+            <h2 className="text-xl font-semibold mb-4">Listado de intérpretes</h2>
+            <p className="text-gray-700 mb-6">
+                Estos son los intérpretes disponibles de nuestras películas:
+            </p>
+            <SearchBar
                 searchTerm={searchTerm}
                 onSearchChange={setSearchTerm}
                 placeholder="Buscar películas por nombre..."
             />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-8">
-            {peliculas.map((pelicula) =>
-                pelicula.actores.map((actor, idInterprete) => (
-                    <Link 
-                        key={`${pelicula.id}-${idInterprete}`} 
-                        to={`/detalle/pelicula/${pelicula.id}/interprete/${idInterprete}`}
-                        aria-label={`Ver detalles del intérprete ${actor.nombre}`}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-8">
+                {filteredInterpretes.map((int) => (
+                    <Link
+                        key={`${int.idPelicula}-${int.idInterprete}`}
+                        to={`/detalle/pelicula/${int.idPelicula}/interprete/${int.idInterprete}`}
+                    >
                         <List
-                            // key={idInterprete} // No es necesario aquí porque el key está en el Link
-                            nombre={actor.nombre}
-                            foto={actor.imagen}
-                            esNota10={pelicula.nota === 10}
+                            nombre={int.nombre}
+                            foto={int.imagen}
                         >
-                            {actor.biografia}
+                            {int.biografia}
                         </List>
                     </Link>
-                ))
-            )}
-        </div>
-    </>
-  );
+                ))}
+            </div>
+        </>
+    );
 }
 export default Interpretes;

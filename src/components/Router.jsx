@@ -7,7 +7,10 @@ import Home from "../pages/Home";
 import Peliculas from "../pages/Peliculas";
 import Interpretes from "../pages/Interpretes";
 import Admin from "../pages/Admin";
-import Formulario from "../pages/Formulario"
+import Formulario from "../pages/Formulario";
+import AñadirInterprete from "../pages/AñadirInerprete"
+import AñadirPeliculaControlado from "../pages/AñadirPelicula(Controlado)" 
+import AñadirPeliculaNoControlado from "../pages/AñadirPelicula(NoControlado)"
 
 /**
  * AppRouter
@@ -54,6 +57,10 @@ function AppRouter() {
         <Route path="/formulario" element={<Formulario />} /> 
         <Route path="/detalle/pelicula/:idPeli" element={<Detail es="pelicula" />} />
         <Route path="/detalle/pelicula/:idPeli/interprete/:idInterprete" element={<Detail es="interprete" />} />
+        <Route path="/admin" element={<Admin/>} />
+        <Route path="/añadirInterprete" element={<AñadirInterprete/>}/>
+        <Route path="/añadirPeliculaControlado" element={<AñadirPeliculaControlado/>}/>
+        <Route path="/añadirPeliculaNoControlado" element={<AñadirPeliculaNoControlado/>}/>
       </Route>
 
       {/* Página 404 */}
