@@ -41,36 +41,34 @@ function AñadirPeliculaNoControlado() {
                     type="text"
                     required
                     ref={nombreRef}
-                    onChange={handleChange}
-                    aria-invalid={!!error}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
                 />
                 <label htmlFor="director"
                     className="block text-sm font-medium text-gray-700 mb-1">
                     Director
                 </label>
-                <input type="text" id="director" required ref={directorRef} onChange={handleChange} aria-invalid={!!error}
+                <input type="text" id="director" required ref={directorRef} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out" />
 
                 <label htmlFor="clasi"
                     className="block text-sm font-medium text-gray-700 mb-1">
                     Clasificacion
                 </label>
-                <input type="text" required id="clasi" ref={clasiRef} onChange={handleChange} aria-invalid={!!error}
+                <input type="text" required id="clasi" ref={clasiRef} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out" />
 
                 <label htmlFor="recau"
                     className="block text-sm font-medium text-gray-700 mb-1">
                     Recaudacion
                 </label>
-                <input type="text" id="recau" ref={recauRef} onChange={handleChange} aria-invalid={!!error}
+                <input type="text" id="recau" ref={recauRef} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out" />
 
                 <label htmlFor="nota"
                     className="block text-sm font-medium text-gray-700 mb-1">
                     Nota
                 </label>
-                <input type="number" id="nota" required ref={notaRef} onChange={handleChange} aria-invalid={!!error}
+                <input type="number" id="nota" required ref={notaRef} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out" />
 
 
@@ -78,7 +76,7 @@ function AñadirPeliculaNoControlado() {
                     className="block text-sm font-medium text-gray-700 mb-1">
                     Cartelera
                 </label>
-                <input type="url" required id="cartelera" ref={carteleraRef} onChange={handleChange} pattern="^http"
+                <input type="url" required id="cartelera" ref={carteleraRef} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out" />
 
                 <button type="submit"

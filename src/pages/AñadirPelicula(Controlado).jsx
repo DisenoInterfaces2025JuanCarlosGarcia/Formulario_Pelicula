@@ -88,7 +88,6 @@ function AñadirPeliculaControlado() {
                 <input type="number" id="nota" required value={formData.nota} onChange={handleChange} aria-invalid={!!error}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 ease-in-out" />
 
-
                 <label htmlFor="cartelera"
                 className="block text-sm font-medium text-gray-700 mb-1">
                     Cartelera

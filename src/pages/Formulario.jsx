@@ -2,53 +2,7 @@ import { useState } from 'react';
 import peliculas from "../data/peliculas"
 
 function Formulario() {
-    const [formData, setFormData] = useState({
-        nombre: "", grupo: "", año: "", tipo: "", localizacion: "", prestado: false
-    });
 
-
-    const handleChange = (e) => {
-
-        const { id, value } = e.target;
-
-
-        setFormData((prev) => ({
-            ...prev,
-            [id]: value,
-        }));
-
-    };
-    const [error, setError] = useState("");
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-
-        if (formData.nombre.length < 5) {
-            setError("Nombre Debe tener al menos 5 caracteres")
-            return;
-        }
-        if (formData.grupo.length < 5) {
-            setError("Grupo Debe tener al menos 5 caracteres")
-            return;
-        }
-
-        if (formData.año.length !== 4) {
-            setError("Año Debe tener al menos 4 caracteres")
-            return;
-        }
-        if (!formData.tipo) {
-            setError("Tipo Debes seleccionar almenos un tipo.")
-            return;
-        }
-        if (!formData.localizacion.match(/^ES-\d{3}[A-Z]{2}$/)) {
-            setError("En localización No has introducido el formato correcto (ES-000AA)")
-            return;
-        }
-        setError("")
-        console.log("Datos válidos. Enviando...");
-        console.log("Datos enviados:", formData);
-    }
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4" >
